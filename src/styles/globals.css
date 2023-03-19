@@ -3,12 +3,12 @@
 
 ::-moz-selection {
   background: #e6dedc;
-  color: #46465c
+  color: #53465c
 }
 
 ::selection {
   background: #e6dedc;
-  color: #46465c
+  color: #50465c
 }
 
 b {
@@ -87,7 +87,7 @@ pre {
 
 body {
   font-family: ibm_vga, monospace;
-  background-color: #17101a;
+  background-color: #14101a;
   color: #e6dedc;
   padding: 1em;
 }

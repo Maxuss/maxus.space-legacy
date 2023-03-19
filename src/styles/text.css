@@ -3,11 +3,11 @@ b {
 }
 
 .black {
-    color: #46465c
+    color: #4e465c
 }
 
 b.black {
-    color: #634560
+    color: #524563
 }
 
 .red {
@@ -71,7 +71,7 @@ b.white {
 }
 
 .black-bg {
-    background-color: #46465c
+    background-color: #53465c
 }
 
 .red-bg {
@@ -103,7 +103,7 @@ b.white {
 }
 
 .bright-black-bg {
-    background-color: #634560
+    background-color: #534563
 }
 
 .bright-red-bg {
