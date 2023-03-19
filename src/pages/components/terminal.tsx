@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, ReactNode } from "react";
+import { executeCommand } from "../api/command"
 
 type OutputLine = {
     type: "command" | "component";
@@ -50,29 +51,18 @@ const Terminal: React.FC = () => {
     }, [])
 
     const handleCommand = (command: string) => {
-        if (command === "show-component") {
-            setOutput((prevOutput) => [
-                ...prevOutput,
-                {
-                    type: "command",
-                    value: command,
-                },
-                {
-                    type: "component",
-                    value: () => (
-                        <div>
-                            <h2>Example Component</h2>
-                            <p>This component was printed to the terminal!</p>
-                        </div>
-                    )
-                }
-            ])
-        } else {
-            setOutput((prevOutput) => [
-                ...prevOutput,
-                { type: "command", value: command },
-            ]);
-        }
+        const result = executeCommand(command)
+        setOutput((prevOutput) => [
+            ...prevOutput,
+            {
+                type: "command",
+                value: command,
+            },
+            {
+                type: "component",
+                value: () => result
+            }
+        ])
         setCommand("");
     };
 
