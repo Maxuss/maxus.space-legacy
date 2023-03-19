@@ -1,0 +1,147 @@
+b {
+    color: #fff
+}
+
+.black {
+    color: #46465c
+}
+
+b.black {
+    color: #634560
+}
+
+.red {
+    color: #e95678
+}
+
+b.red {
+    color: #ec6a88
+}
+
+.green {
+    color: #29d398
+}
+
+b.green {
+    color: #3fdaa4
+}
+
+.yellow {
+    color: #fab795
+}
+
+b.yellow {
+    color: #fbc3a7
+}
+
+.blue {
+    color: #26bbd9
+}
+
+b.blue {
+    color: #3fc6de
+}
+
+.magenta {
+    color: #ee64ae
+}
+
+b.magenta {
+    color: #f075b7
+}
+
+.cyan {
+    color: #59e3e3
+}
+
+b.cyan {
+    color: #6be6e6
+}
+
+.white {
+    color: #fdf0ed
+}
+
+b.white {
+    color: #fff
+}
+
+.black-bg {
+    background-color: #46465c
+}
+
+.red-bg {
+    background-color: #e95678
+}
+
+.green-bg {
+    background-color: #29d398
+}
+
+.yellow-bg {
+    background-color: #fab795
+}
+
+.blue-bg {
+    background-color: #26bbd9
+}
+
+.magenta-bg {
+    background-color: #ee64ae
+}
+
+.cyan-bg {
+    background-color: #59e3e3
+}
+
+.white-bg {
+    background-color: #fdf0ed
+}
+
+.bright-black-bg {
+    background-color: #634560
+}
+
+.bright-red-bg {
+    background-color: #ec6a88
+}
+
+.bright-green-bg {
+    background-color: #3fdaa4
+}
+
+.bright-yellow-bg {
+    background-color: #fbc3a7
+}
+
+.bright-blue-bg {
+    background-color: #3fc6de
+}
+
+.bright-magenta-bg {
+    background-color: #f075b7
+}
+
+.bright-cyan-bg {
+    background-color: #6be6e6
+}
+
+.bright-white-bg {
+    background-color: #fff
+}
+
+.red,
+.green,
+.yellow,
+.blue,
+.magenta,
+.cyan {
+    text-shadow: 0 0 .5px currentColor
+}
+
+@font-face {
+    font-family: ibm_vga;
+    src: url(/WebPlus_IBM_VGA_8x16.woff) format("woff");
+    src: url("../../public/PxPlus_IBM_VGA_8x16.ttf") format("truetype");
+    font-weight: 400
+}
