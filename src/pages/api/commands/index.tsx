@@ -4,6 +4,7 @@ import cd from "./cd"
 import clear from "./clear"
 import echo from "./echo"
 import ls from "./ls"
+import neofetch from "./neofetch"
 import rat from "./rat"
 
 const aggregated: EmulatedCommand[] = [
@@ -12,7 +13,8 @@ const aggregated: EmulatedCommand[] = [
     cd,
     ls,
     cat,
-    clear
+    clear,
+    neofetch
 ]
 
 export default aggregated

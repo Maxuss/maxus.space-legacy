@@ -42,12 +42,16 @@ b.blue {
     color: #3fc6de
 }
 
-.magenta {
-    color: #ee64ae
+.purple {
+    color: #9464ee
 }
 
-b.magenta {
-    color: #f075b7
+.dark-purple {
+    color: #802af1
+}
+
+b.purple {
+    color: #9675f0
 }
 
 .cyan {
@@ -86,8 +90,8 @@ b.white {
     background-color: #26bbd9
 }
 
-.magenta-bg {
-    background-color: #ee64ae
+.purple-bg {
+    background-color: #9964ee
 }
 
 .cyan-bg {
@@ -118,8 +122,8 @@ b.white {
     background-color: #3fc6de
 }
 
-.bright-magenta-bg {
-    background-color: #f075b7
+.bright-purple-bg {
+    background-color: #9a75f0
 }
 
 .bright-cyan-bg {
@@ -144,4 +148,34 @@ b.white {
     src: url(/WebPlus_IBM_VGA_8x16.woff) format("woff");
     src: url("../../public/PxPlus_IBM_VGA_8x16.ttf") format("truetype");
     font-weight: 400
+}
+
+.gradient {
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.rust-color {
+    background-image: conic-gradient(#ff8170, #dda272);
+}
+
+.kotlin-color {
+    background-image: conic-gradient(#af6ff8, #eb75ce);
+}
+
+.java-color {
+    background-image: conic-gradient(#ffd1bf, #ebebeb);
+}
+
+.csharp-color {
+    background-image: conic-gradient(#baf6fa, #89bafa);
 }

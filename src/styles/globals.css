@@ -34,6 +34,19 @@ b {
   text-shadow: none
 }
 
+a {
+  color: #8d64ee;
+  text-shadow: 0 0 .5px #8d64ee;
+  transition: .1s color, .1s text-shadow;
+  cursor: pointer
+}
+
+a:hover {
+  color: #9075f0;
+  text-shadow: 0 0 1px currentColor;
+}
+
+
 @keyframes blinker {
   0% {
     opacity: 1
@@ -82,4 +95,43 @@ body {
 html {
   margin: 0;
   padding: 0
+}
+
+.neofetch {
+  display: flex;
+  flex-direction: row;
+  height: min-content;
+  padding: 1em;
+  gap: 1em
+}
+
+.neofetch-text {
+  max-width: 600px
+}
+
+.neofetch-img {
+  height: 8em;
+  width: auto
+}
+
+#discord:after {
+  display: none;
+  content: "maxus#8805 \1F4CB";
+  color: #5f4372;
+  text-decoration: none !important;
+  text-shadow: none
+}
+
+#discord:hover:after {
+  display: inline;
+  position: relative;
+  margin-left: 6px;
+  color: transparent;
+  background-color: #494563;
+  background-clip: text;
+  -webkit-background-clip: text
+}
+
+.underline {
+  text-decoration: underline;
 }
