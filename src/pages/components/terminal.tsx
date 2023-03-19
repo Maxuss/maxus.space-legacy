@@ -37,6 +37,18 @@ const Terminal: React.FC = () => {
     const [commandHistoryIndex, setCommandHistoryIndex] = useState(-1);
     const inputRef = useRef<HTMLInputElement>(null);
 
+    useEffect(() => {
+        if (inputRef.current) {
+            inputRef.current.scrollIntoView({ behavior: "instant" })
+        }
+    }, [output])
+
+    useEffect(() => {
+        const stored = localStorage.getItem("commandHistory")
+        if (stored)
+            setCommandHistory(JSON.parse(stored))
+    }, [])
+
     const handleCommand = (command: string) => {
         if (command === "show-component") {
             setOutput((prevOutput) => [
@@ -76,6 +88,7 @@ const Terminal: React.FC = () => {
 
                 setCommandHistory((history) => [...history.slice(-RememberCommandAmount), command])
                 setCommandHistoryIndex(-1);
+                localStorage.setItem("commandHistory", JSON.stringify([...commandHistory.slice(-RememberCommandAmount), command]))
             } else {
                 setOutput((prevOutput) => [
                     ...prevOutput,
@@ -101,12 +114,6 @@ const Terminal: React.FC = () => {
             }
         }
     };
-
-    useEffect(() => {
-        if (inputRef.current) {
-            inputRef.current.scrollIntoView({ behavior: "instant" })
-        }
-    }, [output])
 
     return (
         <div className="terminal">
