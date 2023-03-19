@@ -151,3 +151,7 @@ html {
     margin: 0 4em
   }
 }
+
+.sprite {
+  image-rendering: crisp-edges;
+}

@@ -23,7 +23,7 @@ function listEntries(dir: string): React.ReactNode {
     const [type, contents, fullPath] = packed
     if (type == "file")
         return (<div>{fullPath}</div>)
-    const keys = Object.keys(contents)
+    const keys = Object.keys(contents).filter((each) => !each.startsWith("."))
     const mapped = keys.map(key => {
         return (
             <>
