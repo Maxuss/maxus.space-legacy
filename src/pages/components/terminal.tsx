@@ -131,6 +131,7 @@ const Terminal: React.FC = () => {
                 <div className="command">
                     <div className="command-symbol">{CommandSymbol} </div>
                     <input
+                        id="command-input"
                         type="text"
                         ref={inputRef}
                         value={command}

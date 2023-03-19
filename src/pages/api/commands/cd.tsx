@@ -13,7 +13,7 @@ export default {
         const path = args[0];
         const packed = fromRelativeDir(path);
         if (!packed)
-            return (<div>cd: no such file or direct</div>)
+            return (<div>cd: no such file or directory</div>)
         const [type, _, fullPath] = packed
         if (type === "file")
             return (<div>cd: not a directory: {path}</div>)

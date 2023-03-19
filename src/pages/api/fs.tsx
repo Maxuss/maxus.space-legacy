@@ -48,5 +48,5 @@ export function fromRelativeDir(p: string): null | ["file", React.ReactNode, str
 }
 
 function isDir(element: EmulatedFsElement): element is { [key: string]: EmulatedFsElement } {
-    return true
+    return typeof element !== "function" && !("$$typeof" in (element as any))
 }
