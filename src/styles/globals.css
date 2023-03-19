@@ -135,3 +135,18 @@ html {
 .underline {
   text-decoration: underline;
 }
+
+@media screen and (max-width: 550px) {
+  .neofetch {
+    flex-direction: column
+  }
+
+  .neofetch-text {
+    max-width: none
+  }
+
+  .neofetch-img {
+    height: auto;
+    margin: 0 4em
+  }
+}
