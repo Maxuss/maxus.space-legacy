@@ -1,4 +1,4 @@
-import { directory } from "@/pages/components/terminal";
+import { directory, setInternalClipboard } from "@/pages/components/terminal";
 import { fromRelativeDir } from "../fs";
 
 export default {
@@ -27,9 +27,7 @@ function listEntries(dir: string): React.ReactNode {
     const mapped = keys.map(key => {
         return (
             <>
-                <a className="silentlink" onClick={() => {
-                    (document.querySelector("#command-input")! as any).value = `cat ${key}`
-                }}> {key} </a>
+                <a className="silentlink" onClick={() => setInternalClipboard(`cat ${key}`)}> {key} </a>
                 <br />
             </>
         )

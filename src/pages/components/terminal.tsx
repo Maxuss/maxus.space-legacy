@@ -9,8 +9,21 @@ type OutputLine = {
     value: React.ReactNode | (() => React.ReactNode);
 };
 
-const CommandSymbol: string = ">"
+const CommandSymbol: string = "➜"
 const RememberCommandAmount: number = 10
+
+let directorySnapshot: string = "/home/maxus"
+let internalClipboard: string | null = null
+export let directory: string = "/home/maxus"
+export function setDirectory(value: string) {
+    directory = value
+}
+export function setInternalClipboard(value: string) {
+    (document.querySelector("#command-input") as any).value = value
+    internalClipboard = value
+}
+
+let loaded = false
 
 function handleHistoryMapping(line: OutputLine): ReactNode {
     switch (line.type) {
@@ -18,9 +31,9 @@ function handleHistoryMapping(line: OutputLine): ReactNode {
             return (
                 <div key={line.id} onClick={focus}>
                     <br />
-                    <span className="dir">{line.dir.replace("/home/maxus", "~")}</span>
+                    <span className="dir gradient">{line.dir.replace("/home/maxus", "~")}</span>
                     <div className="command">
-                        <div className="command-symbol">{CommandSymbol} </div>
+                        <div className="command-symbol yellow">{CommandSymbol} </div>
                         {line.value as ReactNode}
                     </div>
                 </div>
@@ -34,13 +47,6 @@ function handleHistoryMapping(line: OutputLine): ReactNode {
     }
 }
 
-let directorySnapshot: string = "/home/maxus"
-export let directory: string = "/home/maxus"
-
-export function setDirectory(value: string) {
-    directory = value
-}
-let loaded = false
 
 const Terminal: React.FC = () => {
     const [command, setCommand] = useState("");
@@ -64,13 +70,13 @@ const Terminal: React.FC = () => {
                 type: "command",
                 dir: directory,
                 value: "neofetch",
-                id: 0
+                id: 1
             },
             {
                 type: "component",
                 dir: "",
                 value: () => neofetch.handler([]),
-                id: 1
+                id: 2
             }
         ])
         const stored = localStorage.getItem("commandHistory");
@@ -92,6 +98,7 @@ const Terminal: React.FC = () => {
             {
                 type: "component",
                 dir: "",
+                wasError: false,
                 value: () => result,
                 id: Math.floor(Math.random() * 2147483648)
             }
@@ -100,12 +107,14 @@ const Terminal: React.FC = () => {
     };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        internalClipboard = null
         setCommand(event.target.value);
     };
 
     const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
-            const input: string = command.trim()
+            const input: string = internalClipboard ? internalClipboard.trim() : command.trim()
+            internalClipboard = null
             if (input) {
                 handleCommand(input);
 
@@ -150,9 +159,9 @@ const Terminal: React.FC = () => {
 
             <div id="command-line" onClick={() => focus()}>
                 <br />
-                <span className="dir">{directory.replace("/home/maxus", "~")}</span>
+                <span className="dir gradient">{directory.replace("/home/maxus", "~")}</span>
                 <div className="command">
-                    <div className="command-symbol">{CommandSymbol} </div>
+                    <div className="command-symbol yellow">{CommandSymbol} </div>
                     <input
                         id="command-input"
                         type="text"

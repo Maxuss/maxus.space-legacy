@@ -1,5 +1,6 @@
 import Image from "next/image"
 import favicon from "../../../../public/favicon-300.png"
+import { setInternalClipboard } from "@/pages/components/terminal"
 
 export default {
     name: "neofetch",
@@ -76,6 +77,13 @@ export default {
                         <span className="cyan-bg">   </span>
                         <span className="white-bg">   </span>
                     </pre>
+
+                    <br />
+                    <br />
+                    <span className="black">Tip: run&nbsp;
+                        <a onClick={() => { setInternalClipboard("help") }}>
+                            <b className="black">help</b></a> for command list!
+                    </span>
                 </div>
             </div >
         )

@@ -7,7 +7,7 @@ b {
 }
 
 b.black {
-    color: #524563
+    color: #594c6b
 }
 
 .red {
@@ -178,4 +178,8 @@ b.white {
 
 .csharp-color {
     background-image: conic-gradient(#baf6fa, #89bafa);
+}
+
+.dir {
+    background-image: conic-gradient(#8d64ee, #c68bf7);
 }
