@@ -3,6 +3,7 @@ import { executeCommand } from "../api/command"
 
 type OutputLine = {
     type: "command" | "component";
+    id: number,
     dir: string,
     value: React.ReactNode | (() => React.ReactNode);
 };
@@ -14,7 +15,7 @@ function handleHistoryMapping(line: OutputLine): ReactNode {
     switch (line.type) {
         case "command":
             return (
-                <div onClick={focus}>
+                <div key={line.id} onClick={focus}>
                     <br />
                     <span className="dir">{line.dir.replace("/home/maxus", "~")}</span>
                     <div className="command">
@@ -67,11 +68,13 @@ const Terminal: React.FC = () => {
                 type: "command",
                 dir: directorySnapshot,
                 value: command,
+                id: Math.floor(Math.random() * 2147483648)
             },
             {
                 type: "component",
                 dir: "",
-                value: () => result
+                value: () => result,
+                id: Math.floor(Math.random() * 2147483648)
             }
         ])
         setCommand("");
@@ -96,7 +99,8 @@ const Terminal: React.FC = () => {
                     {
                         type: "command",
                         dir: directory,
-                        value: ""
+                        value: "",
+                        id: Math.floor(Math.random() * 2147483648)
                     }
                 ]);
             }
@@ -119,7 +123,7 @@ const Terminal: React.FC = () => {
 
     return (
         <div className="terminal">
-            <div className="terminal-history">
+            <div id="terminal-history">
                 {
                     output.map(line => handleHistoryMapping(line))
                 }

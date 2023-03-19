@@ -8,7 +8,7 @@ const root: { [key: string]: EmulatedFsElement } = {
     },
     "home": {
         "maxus": {
-            "test.txt": (<div>There must be something interesting here.<br />But there really isn't</div>)
+            "test.txt": (<div>There must be something interesting here.<br />But there really isn&apos;t</div>)
         }
     },
     "root.txt": (<div>Some root text here idk</div>)
