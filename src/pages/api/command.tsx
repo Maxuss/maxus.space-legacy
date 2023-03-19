@@ -1,4 +1,4 @@
-import commands from "./commands/index"
+import commands from "./commands"
 
 type EmulatedCommand = {
     name: string,

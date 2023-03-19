@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, ReactNode } from "react";
 import { executeCommand } from "../api/command"
+import neofetch from "../api/commands/neofetch";
 
 type OutputLine = {
     type: "command" | "component";
@@ -39,6 +40,7 @@ export let directory: string = "/home/maxus"
 export function setDirectory(value: string) {
     directory = value
 }
+let loaded = false
 
 const Terminal: React.FC = () => {
     const [command, setCommand] = useState("");
@@ -49,14 +51,31 @@ const Terminal: React.FC = () => {
 
     useEffect(() => {
         if (inputRef.current) {
-            inputRef.current.scrollIntoView({ behavior: "instant" })
+            inputRef.current.scrollIntoView({ behavior: "instant" });
         }
     }, [output])
 
     useEffect(() => {
-        const stored = localStorage.getItem("commandHistory")
+        if (loaded)
+            return;
+        loaded = true;
+        setOutput([
+            {
+                type: "command",
+                dir: directory,
+                value: "neofetch",
+                id: 0
+            },
+            {
+                type: "component",
+                dir: "",
+                value: () => neofetch.handler([]),
+                id: 1
+            }
+        ])
+        const stored = localStorage.getItem("commandHistory");
         if (stored)
-            setCommandHistory(JSON.parse(stored))
+            setCommandHistory(JSON.parse(stored));
     }, [])
 
     const handleCommand = (command: string) => {
