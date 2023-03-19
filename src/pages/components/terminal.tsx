@@ -3,6 +3,7 @@ import { executeCommand } from "../api/command"
 
 type OutputLine = {
     type: "command" | "component";
+    dir: string,
     value: React.ReactNode | (() => React.ReactNode);
 };
 
@@ -15,7 +16,7 @@ function handleHistoryMapping(line: OutputLine): ReactNode {
             return (
                 <div onClick={focus}>
                     <br />
-                    <span className="dir">~</span>
+                    <span className="dir">{line.dir.replace("/home/maxus", "~")}</span>
                     <div className="command">
                         <div className="command-symbol">{CommandSymbol} </div>
                         {line.value as ReactNode}
@@ -29,6 +30,13 @@ function handleHistoryMapping(line: OutputLine): ReactNode {
                 </div>
             )
     }
+}
+
+let directorySnapshot: string = "/home/maxus"
+export let directory: string = "/home/maxus"
+
+export function setDirectory(value: string) {
+    directory = value
 }
 
 const Terminal: React.FC = () => {
@@ -51,15 +59,18 @@ const Terminal: React.FC = () => {
     }, [])
 
     const handleCommand = (command: string) => {
+        directorySnapshot = directory
         const result = executeCommand(command)
         setOutput((prevOutput) => [
             ...prevOutput,
             {
                 type: "command",
+                dir: directorySnapshot,
                 value: command,
             },
             {
                 type: "component",
+                dir: "",
                 value: () => result
             }
         ])
@@ -84,6 +95,7 @@ const Terminal: React.FC = () => {
                     ...prevOutput,
                     {
                         type: "command",
+                        dir: directory,
                         value: ""
                     }
                 ]);
@@ -115,7 +127,7 @@ const Terminal: React.FC = () => {
 
             <div id="command-line" onClick={() => focus()}>
                 <br />
-                <span className="dir">~</span>
+                <span className="dir">{directory.replace("/home/maxus", "~")}</span>
                 <div className="command">
                     <div className="command-symbol">{CommandSymbol} </div>
                     <input
