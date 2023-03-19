@@ -57,7 +57,7 @@ const Terminal: React.FC = () => {
 
     useEffect(() => {
         if (inputRef.current) {
-            inputRef.current.scrollIntoView({ behavior: "instant" });
+            inputRef.current.scrollIntoView();
         }
     }, [output])
 
