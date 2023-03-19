@@ -1,8 +1,10 @@
 import { EmulatedCommand } from "../command"
 import echo from "./echo"
+import rat from "./rat"
 
 const aggregated: EmulatedCommand[] = [
-    echo
+    echo,
+    rat,
 ]
 
 export default aggregated
