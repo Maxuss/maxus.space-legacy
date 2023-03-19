@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { directory } from "../components/terminal";
+import { directory, setInternalClipboard } from "../components/terminal";
 
 export type EmulatedFsElement = { [key: string]: EmulatedFsElement } | (() => React.ReactNode) | React.ReactNode
 
@@ -16,6 +16,18 @@ const root: { [key: string]: EmulatedFsElement } = {
             "boys": (<div>catboys!!</div>)
         },
         "maxus": {
+            "README": (
+                <div>
+                    <b>hi!!</b><br />
+                    here are some projects i have made that you might be interested in: <br />
+                    <span className="bright-black">Tip: all commands are copyable! just click on them!</span>
+                    <br />
+                    * <b className="purple">Macrocosm</b>: <a className="silentlink" onClick={() => setInternalClipboard("cd ~/projects/Macrocosm")}>cd ~/projects/Macrocosm</a><br />
+                    * <b className="red">ChatGPT-rs</b>: <a className="silentlink" onClick={() => setInternalClipboard("cd ~/projects/chatgpt_rs")}>cd ~/projects/chatgpt_rs</a><br />
+                    * <b className="blue">SharpFunction</b>: <a className="silentlink" onClick={() => setInternalClipboard("cd ~/projects/SharpFunction")}>cd ~/projects/SharpFunction</a><br />
+
+                </div>
+            ),
             "test.txt": (<div>There must be something interesting here.<br />But there really isn&apos;t</div>),
             "inspiration.txt": (<div>
                 main inspiration for this design is<br />
