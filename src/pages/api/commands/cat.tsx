@@ -2,6 +2,7 @@ import { fromRelativeDir } from "../fs"
 
 export default {
     name: "cat",
+    description: "Reads provided file to standard output",
     handler: (args: string[]) => {
         if (args.length === 0 || args[0] === "--help" || args[0] === "-h")
             return (<div>

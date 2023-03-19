@@ -3,18 +3,22 @@ import cat from "./cat"
 import cd from "./cd"
 import clear from "./clear"
 import echo from "./echo"
+import help from "./help"
 import ls from "./ls"
 import neofetch from "./neofetch"
+import pwd from "./pwd"
 import rat from "./rat"
 
 const aggregated: EmulatedCommand[] = [
     echo,
-    rat,
+    help,
+    clear,
     cd,
     ls,
     cat,
-    clear,
-    neofetch
+    pwd,
+    neofetch,
+    rat,
 ]
 
 export default aggregated

@@ -2,6 +2,7 @@ import commands from "./commands/index"
 
 type EmulatedCommand = {
     name: string,
+    description: string,
     handler: (args: string[]) => React.ReactNode
 }
 

@@ -3,6 +3,7 @@ import { fromRelativeDir } from "../fs"
 
 export default {
     name: "cd",
+    description: "Changes current directory to the provided one",
     handler: (args: string[]) => {
         if (args.length == 0) {
             setDirectory("~");

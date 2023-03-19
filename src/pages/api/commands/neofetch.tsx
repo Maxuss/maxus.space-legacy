@@ -3,6 +3,7 @@ import favicon from "../../../../public/favicon-300.png"
 
 export default {
     name: "neofetch",
+    description: "Displays general info about me!",
     handler: (_: string[]) => {
         return (
             <div className="neofetch h-card">

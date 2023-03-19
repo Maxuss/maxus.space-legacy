@@ -3,6 +3,7 @@ import { fromRelativeDir } from "../fs";
 
 export default {
     name: "ls",
+    description: "Lists all entries in this directory",
     handler: (args: string[]) => {
         if (args.length > 1)
             return (<div>ls: too many arguments</div>)

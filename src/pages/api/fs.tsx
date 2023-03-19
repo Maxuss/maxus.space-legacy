@@ -8,7 +8,14 @@ const root: { [key: string]: EmulatedFsElement } = {
     },
     "home": {
         "maxus": {
-            "test.txt": (<div>There must be something interesting here.<br />But there really isn&apos;t</div>)
+            "test.txt": (<div>There must be something interesting here.<br />But there really isn&apos;t</div>),
+            "inspiration.txt": (<div>
+                main inspiration for this design is<br />
+                the linux terminal (obviously), but i also<br />
+                took the CSS (and the style idea generally) from <br />
+                <a className="purple" href="https://oat.zone" target="_blank">this</a> website by oatmealine.<br />
+                credits to her!
+            </div>),
         }
     },
     "root.txt": (<div>Some root text here idk</div>)

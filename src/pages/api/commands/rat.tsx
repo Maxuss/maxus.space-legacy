@@ -3,6 +3,7 @@ import img from "../../../../public/rat.gif"
 
 export default {
     name: "rat",
+    description: "ra t",
     handler: (_: string[]) => {
         return (
             <Image
